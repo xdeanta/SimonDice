@@ -6,13 +6,79 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
+    <Button
+        android:id="@+id/azul"
+        android:layout_width="130dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="28dp"
+        android:backgroundTint="#0382B3"
+        android:text="Azul"
+        app:layout_constraintEnd_toEndOf="@+id/rojo"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/rojo"
+        app:layout_constraintTop_toBottomOf="@+id/rojo" />
+
+    <Button
+        android:id="@+id/amarillo"
+        android:layout_width="130dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="28dp"
+        android:backgroundTint="#B5A400"
+        android:text="Amarillo"
+        app:layout_constraintEnd_toEndOf="@+id/verde"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/verde"
+        app:layout_constraintTop_toBottomOf="@+id/verde" />
+
+    <Button
+        android:id="@+id/rojo"
+        android:layout_width="130dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="200dp"
+        android:layout_marginEnd="32dp"
+        android:backgroundTint="#BA0000"
+        android:text="Rojo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.587"
+        app:layout_constraintStart_toEndOf="@+id/verde"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <Button
+        android:id="@+id/verde"
+        android:layout_width="130dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="56dp"
+        android:layout_marginTop="200dp"
+        android:backgroundTint="#33EB23"
+        android:text="Verde"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/start"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="88dp"
+        android:text="Iniciar"
+        app:icon="@drawable/baseline_play_arrow_black_18dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/amarillo"
+        app:layout_constraintHorizontal_bias="0.476"
+        app:layout_constraintStart_toStartOf="@+id/amarillo"
+        app:layout_constraintTop_toBottomOf="@+id/amarillo"
+        app:layout_constraintVertical_bias="0.077" />
+
+    <Button
+        android:id="@+id/check"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="68dp"
+        android:text="check"
+        app:icon="@drawable/baseline_done_black_18dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/start"
+        app:layout_constraintTop_toTopOf="@+id/start"
+        app:layout_constraintVertical_bias="0.0" />
 </android.support.constraint.ConstraintLayout>
