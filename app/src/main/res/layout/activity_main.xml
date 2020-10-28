@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -10,75 +10,94 @@
         android:id="@+id/azul"
         android:layout_width="130dp"
         android:layout_height="80dp"
-        android:layout_marginTop="28dp"
         android:backgroundTint="#0382B3"
         android:text="Azul"
-        app:layout_constraintEnd_toEndOf="@+id/rojo"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/rojo"
-        app:layout_constraintTop_toBottomOf="@+id/rojo" />
-
-    <Button
-        android:id="@+id/amarillo"
-        android:layout_width="130dp"
-        android:layout_height="80dp"
-        android:layout_marginTop="28dp"
-        android:backgroundTint="#B5A400"
-        android:text="Amarillo"
-        app:layout_constraintEnd_toEndOf="@+id/verde"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/verde"
-        app:layout_constraintTop_toBottomOf="@+id/verde" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.394"
+        app:layout_constraintStart_toStartOf="@+id/guideline10"
+        app:layout_constraintTop_toBottomOf="@+id/rojo"
+        app:layout_constraintVertical_bias="0.128" />
 
     <Button
         android:id="@+id/rojo"
         android:layout_width="130dp"
         android:layout_height="80dp"
-        android:layout_marginTop="200dp"
-        android:layout_marginEnd="32dp"
         android:backgroundTint="#BA0000"
         android:text="Rojo"
+        app:layout_constraintBottom_toTopOf="@+id/guideline12"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.587"
-        app:layout_constraintStart_toEndOf="@+id/verde"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintHorizontal_bias="0.394"
+        app:layout_constraintStart_toStartOf="@+id/guideline10"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.775" />
 
     <Button
-        android:id="@+id/verde"
+        android:id="@+id/amarillo"
         android:layout_width="130dp"
         android:layout_height="80dp"
-        android:layout_marginStart="56dp"
-        android:layout_marginTop="200dp"
-        android:backgroundTint="#33EB23"
-        android:text="Verde"
+        android:backgroundTint="#B5A400"
+        android:text="Amarillo"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/guideline10"
+        app:layout_constraintHorizontal_bias="0.386"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/verde"
+        app:layout_constraintVertical_bias="0.128" />
 
     <Button
         android:id="@+id/start"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="88dp"
+        android:layout_marginTop="56dp"
         android:text="Iniciar"
         app:icon="@drawable/baseline_play_arrow_black_18dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/amarillo"
-        app:layout_constraintHorizontal_bias="0.476"
-        app:layout_constraintStart_toStartOf="@+id/amarillo"
-        app:layout_constraintTop_toBottomOf="@+id/amarillo"
-        app:layout_constraintVertical_bias="0.077" />
+        app:layout_constraintEnd_toStartOf="@+id/guideline10"
+        app:layout_constraintHorizontal_bias="0.361"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/amarillo" />
 
     <Button
         android:id="@+id/check"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="68dp"
+        android:layout_marginTop="56dp"
         android:text="check"
         app:icon="@drawable/baseline_done_black_18dp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/start"
-        app:layout_constraintTop_toTopOf="@+id/start"
-        app:layout_constraintVertical_bias="0.0" />
-</android.support.constraint.ConstraintLayout>
+        app:layout_constraintHorizontal_bias="0.379"
+        app:layout_constraintStart_toStartOf="@+id/guideline10"
+        app:layout_constraintTop_toBottomOf="@+id/azul" />
+
+    <Button
+        android:id="@+id/verde"
+        android:layout_width="130dp"
+        android:layout_height="80dp"
+        android:backgroundTint="#33EB23"
+        android:text="Verde"
+        app:layout_constraintBottom_toTopOf="@+id/guideline12"
+        app:layout_constraintEnd_toStartOf="@+id/guideline10"
+        app:layout_constraintHorizontal_bias="0.386"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.775" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintGuide_begin="205dp"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="178dp"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
