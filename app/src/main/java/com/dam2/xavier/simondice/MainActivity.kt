@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.Toast
 import kotlin.random.Random
+import kotlinx.coroutines.*
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -60,6 +61,7 @@ class MainActivity : AppCompatActivity() {
 
     fun addToSecu(sec : MutableList<Int>)  {
         val numb= Random.nextInt(4) + 1
+        //val numb = 1;
         sec.add(numb)
     }
 
@@ -82,14 +84,37 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun showSec(sec: MutableList<Int>){
-        var t = Toast.makeText(applicationContext,"Inicio", Toast.LENGTH_SHORT)
-        for (color in sec){
-            when(color){
-                1 -> Toast.makeText(applicationContext,"Rojo", Toast.LENGTH_SHORT).show()
-                2 -> Toast.makeText(applicationContext,"Verde", Toast.LENGTH_SHORT).show()
-                3 -> Toast.makeText(applicationContext,"Amarillo", Toast.LENGTH_SHORT).show()
-                4 -> Toast.makeText(applicationContext,"Azul", Toast.LENGTH_SHORT).show()
+        val button_red : Button = findViewById(R.id.rojo)
+        val button_yellow : Button = findViewById(R.id.amarillo)
+        val button_blue : Button = findViewById(R.id.azul)
+        val button_green : Button = findViewById(R.id.verde)
+
+        CoroutineScope(Dispatchers.Main).launch{
+            for (color in sec){
+                when(color){
+                1 -> {
+                    button_red.setPressed(true)
+                    delay(1000)
+                    button_red.setPressed(false)
+                }
+                2 -> {
+                    button_green.setPressed(true)
+                    delay(1000)
+                    button_green.setPressed(false)
+                }
+                3 -> {
+                    button_yellow.setPressed(true)
+                    delay(1000)
+                    button_yellow.setPressed(false)
+                }
+                4 -> {
+                    button_blue.setPressed(true)
+                    delay(1000)
+                    button_blue.setPressed(false)
+                }
+                }
             }
+
         }
     }
 }
