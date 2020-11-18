@@ -4,16 +4,18 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.Toast
+
 import kotlin.random.Random
 import kotlinx.coroutines.*
+
+import androidx.lifecycle.Observer
+import androidx.activity.viewModels
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        var sec: MutableList<Int> = mutableListOf<Int>()
-        var user_sec: MutableList<Int> = mutableListOf<Int>()
-        var finished  = false
+        var sec: MutableList<Int>
         val button_red : Button = findViewById(R.id.rojo)
         val button_yellow : Button = findViewById(R.id.amarillo)
         val button_blue : Button = findViewById(R.id.azul)
@@ -23,64 +25,36 @@ class MainActivity : AppCompatActivity() {
         val toast = Toast.makeText(applicationContext,"Juego terminado", Toast.LENGTH_SHORT)
         val toast2 = Toast.makeText(applicationContext,"Inicio", Toast.LENGTH_SHORT)
 
+        val ModeloJuego by viewModels<liveData>()
+
         button_start.setOnClickListener{
-            finished = false
-            reset(sec,user_sec)
-            addToSecu(sec)
             toast2.show()
+            sec=ModeloJuego.init_game()
             showSec(sec)
         }
 
         button_check.setOnClickListener{
-            if(finished==false){
-                if(checkSec(sec,user_sec)){
-                    addToSecu(sec)
-                    user_sec.clear()
-                    showSec(sec)
-                }else{
-                    finished=true
-                    toast.show()
-                }
+            if(ModeloJuego.checkSec()){
+                sec=ModeloJuego.getSec()
+                showSec(sec)
+            }else{
+                toast.show()
             }
         }
         button_red.setOnClickListener{
-            addUserSec(user_sec,1)
+            ModeloJuego.addUserSec(1)
         }
         button_green.setOnClickListener{
-            addUserSec(user_sec,2)
+            ModeloJuego.addUserSec(2)
         }
         button_yellow.setOnClickListener{
-            addUserSec(user_sec,3)
+            ModeloJuego.addUserSec(3)
         }
         button_blue.setOnClickListener{
-            addUserSec(user_sec,4)
+            ModeloJuego.addUserSec(4)
         }
         //showSec(sec)
 
-    }
-
-    fun addToSecu(sec : MutableList<Int>)  {
-        val numb= Random.nextInt(4) + 1
-        //val numb = 1;
-        sec.add(numb)
-    }
-
-    fun checkSec(sec : MutableList<Int>, secUsr : MutableList<Int>) : Boolean {
-        return sec == secUsr
-    }
-
-    fun reset(sec: MutableList<Int>, secUsr: MutableList<Int>){
-        sec.clear()
-        secUsr.clear()
-    }
-
-    fun addUserSec(secUsr: MutableList<Int>, color: Int){
-        when(color){
-            1 -> secUsr.add(1)
-            2 -> secUsr.add(2)
-            3 -> secUsr.add(3)
-            else -> secUsr.add(4)
-        }
     }
 
     fun showSec(sec: MutableList<Int>){
